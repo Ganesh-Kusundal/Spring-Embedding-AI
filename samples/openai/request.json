@@ -1,0 +1,10 @@
+{
+  "openAiApiKey": "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",
+  "content": [
+    "The first piece of text to generate embeddings for.",
+    "The second piece of text to generate embeddings for."
+  ],
+  "model": "text-embedding-ada-002",
+  "encodingFormat": "float",
+  "user": "user-identifier"
+}

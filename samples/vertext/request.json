@@ -1,0 +1,8 @@
+{
+  "project": "your-gcp-project-id",
+  "location": "us-central1",
+  "publisher": "google",
+  "model": "textembedding-gecko@001",
+  "content": "What is life?",
+//  AIzaSyBVHlZII1Oagj0XnG471CnwyiW5ZbZUR8E
+}
