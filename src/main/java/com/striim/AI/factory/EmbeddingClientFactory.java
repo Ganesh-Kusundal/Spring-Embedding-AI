@@ -34,13 +34,13 @@ public class EmbeddingClientFactory {
 
     private static final  Map<String, AbstractEmbeddingClient> clientCache = new ConcurrentHashMap<>();
 
-    public AbstractEmbeddingClient getClient(String appId, ClientType clientType, Object options) {
-        String cacheKey = appId + "-" + clientType.name() + "-" + Objects.hashCode(options);
-        return clientCache.computeIfAbsent(cacheKey, k -> createClient(clientType, options));
+    public AbstractEmbeddingClient getClient(String appId, EmbeddingType embeddingType, Object options) {
+        String cacheKey = appId + "-" + embeddingType.name() + "-" + Objects.hashCode(options);
+        return clientCache.computeIfAbsent(cacheKey, k -> createClient(embeddingType, options));
     }
 
-    private AbstractEmbeddingClient createClient(ClientType clientType, Object options) {
-        switch (clientType) {
+    private AbstractEmbeddingClient createClient(EmbeddingType embeddingType, Object options) {
+        switch (embeddingType) {
             case AZURE_OPENAI:
                 return createAzureClient((AzureOpenAiEmbeddingOptions) options);
             case OLLAMA:
@@ -54,7 +54,7 @@ public class EmbeddingClientFactory {
             case VERTEXAI:
                 return createGoogleVertexClient((VertexAIEmbeddingOptions_V2) options);
             default:
-                throw new IllegalArgumentException("Unsupported client type: " + clientType);
+                throw new IllegalArgumentException("Unsupported client type: " + embeddingType);
         }
     }
 

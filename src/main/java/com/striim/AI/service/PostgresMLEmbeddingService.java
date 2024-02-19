@@ -1,6 +1,6 @@
 package com.striim.AI.service;
 
-import com.striim.AI.factory.ClientType;
+import com.striim.AI.factory.EmbeddingType;
 import com.striim.AI.factory.EmbeddingClientFactory;
 import com.striim.AI.wrapper.PostgresMlEmbeddingOptions;
 import org.springframework.ai.embedding.Embedding;
@@ -13,7 +13,7 @@ public class PostgresMLEmbeddingService {
     @Autowired
     private EmbeddingClientFactory clientFactory;
    public ModelResponse<Embedding> generateEmbedding(String appId, PostgresMlEmbeddingOptions options) {
-       var embeddingClient = clientFactory.getClient(appId, ClientType.POSTGRESML, options);
+       var embeddingClient = clientFactory.getClient(appId, EmbeddingType.POSTGRESML, options);
        return embeddingClient
                .embedForResponse(options.getContent());
     }

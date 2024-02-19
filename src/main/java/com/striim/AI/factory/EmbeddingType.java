@@ -1,6 +1,6 @@
 package com.striim.AI.factory;
 
-public enum ClientType {
+public enum EmbeddingType {
     AZURE_OPENAI,
     OLLAMA,
     OPENAI,
